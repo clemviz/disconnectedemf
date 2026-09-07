@@ -1,0 +1,30 @@
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# macOS (in case the site is ever edited from a Mac)
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs and local scratch files
+*.log
+tmp/
+temp/
+
+# Credentials: never commit these
+.env
+.env.*
+*.pem
+secrets.json
+
+# Node, if a build step or tooling is ever added
+node_modules/
+npm-debug.log*

@@ -1,0 +1,242 @@
+/* ==========================================================================
+   Disconnected: base.css
+   Design tokens, reset, typography and small utilities.
+   Load order: base.css -> layout.css -> components.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand: taken from the logo */
+  --orange:        #f77f0a;
+  --orange-dark:   #d96a00;
+  --orange-soft:   #fff3e3;
+  --ink:           #1a1a1a;
+
+  /* Neutrals */
+  --ink-soft:      #2b2f33;
+  --body:          #4e565d;
+  --muted:         #7b848c;
+  --line:          #e6e2dc;
+  --sand:          #faf7f2;
+  --sand-deep:     #f3ede4;
+  --white:         #ffffff;
+
+  /* Secondary accent: calm, "healthy space" green */
+  --green:         #1f7a6b;
+  --green-soft:    #e7f2ef;
+
+  /* Typography */
+  --font-display: "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body:    "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --step--1: clamp(0.86rem, 0.83rem + 0.15vw, 0.94rem);
+  --step-0:  clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
+  --step-1:  clamp(1.2rem, 1.12rem + 0.4vw, 1.4rem);
+  --step-2:  clamp(1.45rem, 1.3rem + 0.75vw, 1.9rem);
+  --step-3:  clamp(1.8rem, 1.55rem + 1.25vw, 2.6rem);
+  --step-4:  clamp(2.2rem, 1.7rem + 2.4vw, 3.6rem);
+
+  /* Space */
+  --space-xs:  0.5rem;
+  --space-sm:  0.875rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 6rem;
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius:    14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 2px rgba(26, 26, 26, .06), 0 4px 12px rgba(26, 26, 26, .05);
+  --shadow:    0 10px 30px rgba(26, 26, 26, .08);
+  --shadow-lg: 0 24px 60px rgba(26, 26, 26, .12);
+
+  --container: 1160px;
+  --header-h:  78px;
+
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--body);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0 0 var(--space-sm);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--step-4); }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-2); }
+h4 { font-size: var(--step-1); letter-spacing: -0.01em; }
+
+p, ul, ol, dl, table, figure, blockquote { margin: 0 0 var(--space-md); }
+p:last-child, ul:last-child, ol:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--green);
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: color .2s var(--ease);
+}
+a:hover { color: var(--orange-dark); text-decoration: underline; }
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+strong, b { color: var(--ink-soft); font-weight: 600; }
+
+blockquote {
+  margin: 0 0 var(--space-md);
+  padding-left: var(--space-md);
+  border-left: 3px solid var(--orange);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+hr { border: 0; border-top: 1px solid var(--line); margin: var(--space-lg) 0; }
+
+code, kbd, samp {
+  font-family: ui-monospace, "Cascadia Mono", Menlo, monospace;
+  font-size: 0.92em;
+  background: var(--sand-deep);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection { background: var(--orange); color: #fff; }
+
+/* --------------------------------------------------------------------------
+   3. Lists used inside editorial copy
+   -------------------------------------------------------------------------- */
+.prose ul, .prose ol { padding-left: 1.25rem; }
+.prose li { margin-bottom: 0.4rem; }
+.prose li::marker { color: var(--orange); }
+
+.list-check { list-style: none; padding-left: 0; }
+.list-check li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.7rem;
+}
+.list-check li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 1.05rem;
+  height: 0.55rem;
+  border-left: 2.5px solid var(--orange);
+  border-bottom: 2.5px solid var(--orange);
+  transform: rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   4. Utilities
+   -------------------------------------------------------------------------- */
+.container {
+  width: min(100% - 2.5rem, var(--container));
+  margin-inline: auto;
+}
+.container--narrow { width: min(100% - 2.5rem, 780px); }
+
+.text-center { text-align: center; }
+.mx-auto    { margin-inline: auto; }
+.mt-lg      { margin-top: var(--space-lg); }
+.mt-xl      { margin-top: var(--space-xl); }
+.mb-0       { margin-bottom: 0; }
+
+.lead {
+  font-size: var(--step-1);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.accent { color: var(--orange); }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 200;
+  padding: 0.7rem 1.1rem;
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  transition: top .2s var(--ease);
+}
+.skip-link:focus { top: 1rem; color: #fff; text-decoration: none; }
+
+/* Scroll reveal: only arms itself once JS is running */
+html[data-reveal-ready] [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+html[data-reveal-ready] [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+  html[data-reveal-ready] [data-reveal] { opacity: 1; transform: none; }
+}

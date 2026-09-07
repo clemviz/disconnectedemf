@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Disconnected</title>
+  <meta name="description" content="News, practical tips and notes from the field on electromagnetic exposure at home.">
+  <link rel="icon" href="../img/logo/logo_svg.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Nunito:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html" aria-label="Disconnected, home">
+        <img src="../img/logo/Full Logo Transparent Background.png" alt="Disconnected" width="1688" height="560">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Main">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="../index.html">Home</a></li>
+          <li class="nav__item"><a class="nav__link" href="../pages/why-emf.html">Why care?</a></li>
+          <li class="nav__item"><a class="nav__link" href="../pages/assessment.html">Assessment</a></li>
+          <!-- Blog hidden for now; uncomment this item to bring it back.
+          <li class="nav__item"><a class="nav__link is-active" href="../pages/blog.html">Blog</a></li>
+          -->
+          <li class="nav__item nav__item--has-menu">
+            <button class="nav__submenu-toggle" type="button" aria-expanded="false">
+              More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <ul class="nav__submenu">
+              <li><a href="../pages/standards.html">Standards<small>Bio-Initiative, SBM-2024, IGNIR</small></a></li>
+              <li><a href="../pages/about.html">About<small>Who is behind Disconnected</small></a></li>
+              <li><a href="../pages/resources.html">Resources<small>Books, studies and videos</small></a></li>
+            </ul>
+          </li>
+          <li class="nav__item nav__cta"><a class="btn btn--primary btn--sm" href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-head">
+      <div class="container">
+        <ul class="breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li>Blog</li>
+        </ul>
+        <h1>Notes from the field</h1>
+        <p>
+          Practical tips, measurement stories and news about electromagnetic exposure at home.
+          Filter by topic below.
+        </p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <!-- Filters and cards are rendered by js/blog.js from the POSTS array. -->
+        <div class="filters" id="post-filters" role="group" aria-label="Filter articles by topic"></div>
+        <div class="grid grid--3" id="post-list" aria-live="polite"></div>
+
+        <noscript>
+          <p class="empty-state">
+            The article list needs JavaScript. You can still reach us on
+            <a href="mailto:disconnectedemf@gmail.com">disconnectedemf@gmail.com</a>.
+          </p>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <h2>Want this in your inbox?</h2>
+        <p>We send a short note when something worth reading goes up, no more than a few times a year.</p>
+        <a class="btn btn--primary" href="../index.html#contact">Ask to be added</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../img/logo/Full Logo Mono White.png" alt="Disconnected" width="1688" height="560">
+          <p>Home assessments of electromagnetic fields, and practical solutions to reduce your exposure where you live and sleep.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/why-emf.html">Why care?</a></li>
+            <li><a href="../pages/assessment.html">Assessment</a></li>
+            <li><a href="../pages/blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>More</h3>
+          <ul>
+            <li><a href="../pages/standards.html">Standards</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/resources.html">Resources</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:disconnectedemf@gmail.com">disconnectedemf@gmail.com</a></li>
+            <li><a href="tel:+447857923055">+44 (0)7857 923055</a></li>
+            <li>United Kingdom</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span data-year>2026</span> Disconnected. All rights reserved.</p>
+        <p>Measurements referenced against Bio-Initiative, SBM-2024 and IGNIR guidance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/blog.js"></script>
+</body>
+</html>

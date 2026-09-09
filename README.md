@@ -43,6 +43,13 @@ straight from the logo; `--green` is the secondary accent.
 **Navigation and footer**: the markup is repeated in every page (no build step, so nothing to
 compile). Change one, then apply the same change to the others.
 
+**SEO metadata**: same story — each page carries its own `<title>`, description, `rel="canonical"`,
+Open Graph tags and JSON-LD block in the `<head>`. The title and description are written out three
+times per page (the tag, `og:title`, `og:description`), so change all three together. Canonical and
+`og:url` must be the absolute `https://www.disconnectedemf.co.uk/...` address of that page.
+New pages need: a head block copied from a sibling with the URLs changed, a `BreadcrumbList`
+JSON-LD, and an entry added to `sitemap.xml`.
+
 **Hero image**: save a photo as `img/hero/living-space.jpg`. Until then a gradient shows in its
 place; the CSS already layers a white wash over the photo so the headline stays readable.
 
@@ -64,3 +71,10 @@ generated from the tags automatically.
 
 - The founder biography and equipment list in `pages/about.html`.
 - The four sample blog posts in `js/blog.js`.
+- `img/og-image.png` at 1200x630, for link previews. Until it exists, `og:image` points at the
+  logo, which is the wrong shape and gets letterboxed. Update the `og:image` line in all 6
+  indexable pages once it is made.
+- PNG favicons (48x48 or larger, plus an `apple-touch-icon`) exported from `img/logo/logo_svg.svg`.
+  Only the SVG is declared today; Google prefers a raster icon beside search results.
+- Remove the `noindex` lines from `pages/blog.html` and `pages/blog-post.html` when real posts
+  replace the samples, and add both URLs to `sitemap.xml`.
